@@ -42,7 +42,7 @@ relays, temp_sensor, moisture_sensor = init_devices(connect_rs485())
 
 def on_connect(client, userdata, flags, rc):
     print("Connected with result code " + str(rc))
-    client.subscribe("platino/" + SERIAL_NUMBER + "/command/")
+    client.subscribe("platino/" + SERIAL_NUMBER + "/command")
 
 
 def on_message(client, userdata, msg):
@@ -87,7 +87,7 @@ while True:
     data = {"temperature": temp, "moisture": moisture}
     # publish data
     publish.single(
-        "platino/" + SERIAL_NUMBER + "/data/", data, hostname="broker.emqx.io"
+        "platino/" + SERIAL_NUMBER + "/data", data, hostname="broker.emqx.io"
     )
     # sleep for 5 seconds
     time.sleep(1)

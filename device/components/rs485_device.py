@@ -1,14 +1,16 @@
 import serial as se
 
-class Rs485Device():
+
+class Rs485Device:
     def __init__(self, serial, address):
         self.serial = serial
         self.address = address
-    
-    def send(self, data = []):
+
+    def send(self, data=[]):
         if len(data) != 7:
             raise ValueError("Data must be 7 bytes long")
         data = [self.address] + data
+        print(data)
         self.serial.write(data)
 
     def read(self):
