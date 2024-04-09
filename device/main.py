@@ -8,6 +8,7 @@ from components.temp_sensor import TemperatureSensor
 import crypto as cr
 import serial
 import time
+import json
 
 PORT_NAME = "/dev/ttyUSB0"
 SERIAL_NUMBER = "1938-3092-9478-1823"
@@ -87,7 +88,9 @@ while True:
     data = {"temperature": temp, "moisture": moisture}
     # publish data
     publish.single(
-        "platino/" + SERIAL_NUMBER + "/data", data, hostname="broker.emqx.io"
+        "platino/" + SERIAL_NUMBER + "/data",
+        json.dumps(data),
+        hostname="broker.emqx.io",
     )
     # sleep for 5 seconds
     time.sleep(1)
