@@ -88,7 +88,7 @@ while True:
     data = {"temperature": temp, "moisture": moisture}
     # publish data
     publish.single(
-        "platino/" + SERIAL_NUMBER + "/data",
+        "plantino/" + SERIAL_NUMBER + "/data",
         json.dumps(data),
         hostname="broker.emqx.io",
     )
