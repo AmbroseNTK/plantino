@@ -79,10 +79,10 @@ client.connect("broker.emqx.io", 1883, 60)
 while True:
     client.loop()
     # read temperature
-    temp = temp_sensor.read()
+    temp = temp_sensor.read_sensor()
     print("Temperature: " + str(temp))
     # read moisture
-    moisture = moisture_sensor.read()
+    moisture = moisture_sensor.read_sensor()
     print("Moisture: " + str(moisture))
     data = {"temperature": temp, "moisture": moisture}
     # publish data
