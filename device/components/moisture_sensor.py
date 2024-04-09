@@ -4,8 +4,8 @@ import time
 
 
 class MoistureSensor(Rs485Device):
-    def __init__(self, pin):
-        self.pin = pin
+    def __init__(self, serial, address):
+        super().__init__(serial, address)
 
     def read(self):
         self.send([3, 0, 7, 0, 1, 53, 203])
