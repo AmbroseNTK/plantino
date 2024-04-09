@@ -18,7 +18,9 @@ class Rs485Device:
         if bytesToRead == 0:
             return 0
         data = self.serial.read(bytesToRead)
+        print(data)
         dataArray = list(data)
+        print(dataArray)
         if len(dataArray) >= 7:
             array_size = len(dataArray)
             value = dataArray[array_size - 4] * 256 + dataArray[array_size - 3]

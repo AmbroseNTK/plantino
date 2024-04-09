@@ -7,6 +7,7 @@ class TemperatureSensor(Rs485Device):
         super().__init__(serial, address)
 
     def read(self):
+        self.read()
         self.send([3, 0, 6, 0, 1, 100, 11])
         time.sleep(0.5)
         return self.read()
