@@ -81,11 +81,10 @@ while True:
     client.loop()
     # read temperature
     temp = temp_sensor.read_sensor()
-    print("Temperature: " + str(temp))
     # read moisture
     moisture = moisture_sensor.read_sensor()
-    print("Moisture: " + str(moisture))
     data = {"temperature": temp, "moisture": moisture}
+    print("Publishing data: " + str(data))
     # publish data
     publish.single(
         "plantino/" + SERIAL_NUMBER + "/data",

@@ -1,0 +1,30 @@
+version: "3"
+services:
+  agent:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # Add any additional configuration for the build service here
+    depends_on:
+      - postgres
+      - totalplatformflow
+
+  postgres:
+    image: postgres
+    # Add any additional configuration for the postgres service here
+    environment:
+      - POSTGRES_DB=plantino
+      - POSTGRES_USER=plantino
+      - POSTGRES_PASSWORD=2o3fws3030shu4932
+    ports:
+      - "5432:5432"
+    # dsn: "postgres://plantino:2o3fws3030shu4932@postgres:5432/plantino"
+
+  totalplatformflow:
+    image: totalplatform/flow
+    # Add any additional configuration for the totaljsflow service here
+    ports:
+      - "8000:8000"
+
+    depends_on:
+      - postgres

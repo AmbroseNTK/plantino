@@ -1,0 +1,17 @@
+serialNumber: "1938-3092-9478-1823"
+thresholds:
+  humidity:
+    low: 0.80
+    high: 1
+    duration: 200
+
+fan:
+  relay:
+    address: "2"
+
+watering:
+  relay:
+    address: "3"
+
+db:
+  dsn: "postgresql://plantino:2o3fws3030shu4932@postgres/plantino"

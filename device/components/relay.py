@@ -7,9 +7,11 @@ class Relay(Rs485Device):
         super().__init__(serial, address)
 
     def turn_on(self):
+        print("Relay at address " + str(self.address) + " turned on")
         super.send([6, 0, 0, 0, 255, 200, 91])
 
     def turn_off(self):
+        print("Relay at address " + str(self.address) + " turned off")
         super.send([6, 0, 0, 0, 0, 136, 27])
 
     def read_status(self):
